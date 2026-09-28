@@ -1,0 +1,17 @@
+{
+  "name": "bot-limpar-chat",
+  "version": "1.0.0",
+  "description": "Bot do Discord para apagar o histórico de um canal específico",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "register": "node src/register-commands.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "discord.js": "^14.26.4",
+    "dotenv": "^16.6.1"
+  }
+}
