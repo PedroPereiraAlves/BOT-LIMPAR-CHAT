@@ -78,14 +78,16 @@ Canais de voz e tópicos só aceitam o modo **Apagar mensagens**. Canais de regr
 - No modo de apagar mensagens, o Discord limita a velocidade. Históricos muito antigos demoram.
 - Algumas mensagens de sistema não podem ser apagadas. O bot informa quantas ficaram.
 
-## Deixar ligado sem o seu PC
+## Publicar na Discloud
 
-O bot precisa de um computador que fique ligado o tempo todo. Pode ser uma hospedagem de bots, como a [Square Cloud](https://squarecloud.app/) ou a [Discloud](https://discloud.com/), ou um VPS com Node.js.
+O `discloud.config` já aponta para `src/index.js`. A Discloud instala as dependências a partir do `package.json`.
 
 1. Pare o `npm start` no seu PC. O mesmo token não pode ficar conectado nos dois lugares ao mesmo tempo.
-2. Envie o projeto para a hospedagem, sem a pasta `node_modules`.
-3. Cadastre lá as mesmas variáveis do `.env`: `DISCORD_TOKEN`, `CLIENT_ID` e `GUILD_ID`.
-4. O comando de início é `npm start` e o arquivo principal é `src/index.js`.
-5. Quando o painel mostrar o bot online, teste `/limpar` em um canal de teste.
+2. No upload, cadastre as variáveis de ambiente com os mesmos nomes do `.env`: `DISCORD_TOKEN`, `CLIENT_ID` e `GUILD_ID`. A Discloud cria o arquivo `.env` na aplicação a partir desses valores.
+3. Compacte a pasta do projeto em um `.zip`. A raiz do zip precisa conter `discloud.config`, `package.json` e a pasta `src`. O `.env` local fica de fora por causa do `.discloudignore`.
+4. Deixe de fora a pasta `node_modules`.
+5. Envie o zip no [painel da Discloud](https://discloud.com/).
+6. No log, espere `Conectado como ...` e `Comando /limpar registrado no servidor ...`.
+7. Teste `/limpar` em um canal de teste.
 
 Não publique o arquivo `.env` num repositório público. O token do bot é a senha dele.
